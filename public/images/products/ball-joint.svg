@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <rect width="600" height="600" fill="#F1F5F9"/>
+  <rect x="24" y="24" width="552" height="552" rx="16" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 8"/>
+  <!-- Ball Joint / Tie Rod End (سیبک) -->
+  <rect x="276" y="130" width="48" height="90" rx="8" fill="#64748B" stroke="#334155" stroke-width="4"/>
+  <path d="M240 220 L360 220 L380 290 L220 290 Z" fill="#0F172A"/>
+  <ellipse cx="300" cy="320" rx="85" ry="55" fill="#1E293B" stroke="#475569" stroke-width="6"/>
+  <rect x="360" y="302" width="130" height="36" rx="8" fill="#475569" stroke="#334155" stroke-width="4"/>
+  <circle cx="300" cy="320" r="24" fill="#EA580C"/>
+  <rect x="170" y="455" width="260" height="44" rx="8" fill="#E2E8F0"/>
+  <text x="300" y="483" text-anchor="middle" fill="#0F172A" font-family="sans-serif" font-weight="bold" font-size="18">سیبک فرمان و زیر کمک</text>
+</svg>

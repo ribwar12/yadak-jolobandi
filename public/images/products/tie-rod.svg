@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <rect width="600" height="600" fill="#F1F5F9"/>
+  <rect x="24" y="24" width="552" height="552" rx="16" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 8"/>
+  <!-- Tie Rod / Rack End (قرقری فرمان) -->
+  <rect x="115" y="255" width="250" height="24" rx="6" fill="#334155"/>
+  <circle cx="385" cy="267" r="44" fill="#0F172A" stroke="#475569" stroke-width="6"/>
+  <circle cx="385" cy="267" r="20" fill="#EA580C"/>
+  <rect x="429" y="249" width="60" height="36" rx="6" fill="#64748B"/>
+  <rect x="170" y="455" width="260" height="44" rx="8" fill="#E2E8F0"/>
+  <text x="300" y="483" text-anchor="middle" fill="#0F172A" font-family="sans-serif" font-weight="bold" font-size="18">قرقری و سیبک جعبه فرمان</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <rect width="600" height="600" fill="#F1F5F9"/>
+  <rect x="24" y="24" width="552" height="552" rx="16" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 8"/>
+  <!-- Industrial Box / Suspension Pack Illustration -->
+  <rect x="110" y="130" width="380" height="280" rx="12" fill="#0F172A" stroke="#334155" stroke-width="4"/>
+  <rect x="130" y="150" width="340" height="50" rx="6" fill="#EA580C"/>
+  <text x="300" y="182" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-weight="bold" font-size="22">FULL SUSPENSION KIT</text>
+  <!-- Parts inside pack -->
+  <!-- Left & Right Control Arms -->
+  <path d="M160 250 L250 230 L270 290 L190 310 Z" fill="#475569" stroke="#94A3B8" stroke-width="3"/>
+  <circle cx="175" cy="280" r="14" fill="#EA580C"/>
+  <circle cx="245" cy="245" r="10" fill="#0F172A" stroke="#CBD5E1" stroke-width="3"/>
+  <path d="M440 250 L350 230 L330 290 L410 310 Z" fill="#475569" stroke="#94A3B8" stroke-width="3"/>
+  <circle cx="425" cy="280" r="14" fill="#EA580C"/>
+  <circle cx="355" cy="245" r="10" fill="#0F172A" stroke="#CBD5E1" stroke-width="3"/>
+  <!-- Tie Rods & Sway Bars -->
+  <line x1="160" y1="350" x2="280" y2="350" stroke="#CBD5E1" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="160" cy="350" r="12" fill="#EA580C"/>
+  <circle cx="280" cy="350" r="12" fill="#EA580C"/>
+  <line x1="320" y1="350" x2="440" y2="350" stroke="#CBD5E1" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="320" cy="350" r="12" fill="#EA580C"/>
+  <circle cx="440" cy="350" r="12" fill="#EA580C"/>
+  <!-- Footer label -->
+  <rect x="170" y="445" width="260" height="44" rx="8" fill="#E2E8F0"/>
+  <text x="300" y="473" text-anchor="middle" fill="#0F172A" font-family="sans-serif" font-weight="bold" font-size="18">پک کامل جلوبندی استاندارد</text>
+</svg>

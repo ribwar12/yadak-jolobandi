@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <rect width="600" height="600" fill="#F1F5F9"/>
+  <rect x="24" y="24" width="552" height="552" rx="16" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 8"/>
+  <!-- Sway Bar Link (میل موجگیر) -->
+  <line x1="170" y1="360" x2="430" y2="180" stroke="#334155" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="170" cy="360" r="36" fill="#0F172A" stroke="#475569" stroke-width="6"/>
+  <circle cx="170" cy="360" r="16" fill="#EA580C"/>
+  <circle cx="430" cy="180" r="36" fill="#0F172A" stroke="#475569" stroke-width="6"/>
+  <circle cx="430" cy="180" r="16" fill="#EA580C"/>
+  <rect x="170" y="455" width="260" height="44" rx="8" fill="#E2E8F0"/>
+  <text x="300" y="483" text-anchor="middle" fill="#0F172A" font-family="sans-serif" font-weight="bold" font-size="18">میل موجگیر و دو سر رزوه</text>
+</svg>

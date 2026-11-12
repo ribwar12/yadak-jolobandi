@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none">
+  <rect width="600" height="600" fill="#F1F5F9"/>
+  <rect x="24" y="24" width="552" height="552" rx="16" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="8 8"/>
+  <!-- Control Arm (طبق) -->
+  <path d="M140 360 C160 220, 280 160, 440 190 L460 240 C340 230, 260 280, 250 400 Z" fill="#1E293B" stroke="#475569" stroke-width="6"/>
+  <!-- Bushings & Ball Joint -->
+  <circle cx="170" cy="365" r="36" fill="#334155" stroke="#94A3B8" stroke-width="5"/>
+  <circle cx="170" cy="365" r="16" fill="#0F172A" stroke="#EA580C" stroke-width="4"/>
+  <circle cx="235" cy="395" r="32" fill="#334155" stroke="#94A3B8" stroke-width="5"/>
+  <circle cx="235" cy="395" r="14" fill="#0F172A"/>
+  <circle cx="445" cy="212" r="28" fill="#EA580C" stroke="#FFFFFF" stroke-width="4"/>
+  <rect x="437" y="160" width="16" height="35" rx="4" fill="#64748B"/>
+  <rect x="170" y="460" width="260" height="44" rx="8" fill="#E2E8F0"/>
+  <text x="300" y="488" text-anchor="middle" fill="#0F172A" font-family="sans-serif" font-weight="bold" font-size="18">طبق و بوش جناقی جلوبندی</text>
+</svg>
