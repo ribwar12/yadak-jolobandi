@@ -30,7 +30,7 @@ export function CompatibilityBadge({
           )}
         >
           <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-emerald-600" />
-          سازگار با {selectedCar.name}
+          <span className="truncate">سازگار با {selectedCar.name}</span>
         </span>
       );
     }
@@ -43,7 +43,7 @@ export function CompatibilityBadge({
         )}
       >
         <AlertTriangle className="h-3.5 w-3.5 shrink-0 text-red-600" />
-        ناسازگار با {selectedCar.name}
+        <span className="truncate">ناسازگار با {selectedCar.name}</span>
       </span>
     );
   }
@@ -62,8 +62,10 @@ export function CompatibilityBadge({
       )}
     >
       <CarFront className="h-3.5 w-3.5 shrink-0 text-slate-500" />
-      مناسب {firstCarName}
-      {extraCount > 0 ? ` و ${extraCount} مدل دیگر` : ""}
+      <span className="truncate">
+        مناسب {firstCarName}
+        {extraCount > 0 ? ` و ${extraCount} مدل دیگر` : ""}
+      </span>
     </span>
   );
 }
