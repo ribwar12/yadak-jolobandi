@@ -65,7 +65,7 @@ export function HeroSection() {
               {slides.map((slide, idx) => (
                 <div
                   key={slide.id}
-                  className="relative min-w-0 shrink-0 grow-0 basis-full h-[185px] sm:h-[220px] md:h-[340px] lg:h-[420px]"
+                  className="relative min-w-0 shrink-0 grow-0 basis-full h-[185px] sm:h-[220px] md:h-[380px] lg:h-[480px] xl:h-[520px]"
                 >
                   <Image
                     src={slide.image}
@@ -78,7 +78,7 @@ export function HeroSection() {
 
                   <div className="absolute inset-0 bg-gradient-to-l from-slate-950/95 via-slate-950/70 to-slate-950/20 md:from-slate-950/90 md:via-slate-950/45 md:to-transparent" />
 
-                  <div className="relative z-10 h-full flex items-center px-5 md:container md:mx-auto md:px-4">
+                  <div className="relative z-10 h-full flex items-center px-5 md:container md:mx-auto md:px-16">
                     <div className="max-w-lg space-y-2 md:space-y-4 text-right">
                       <span className="inline-block rounded-md bg-orange-500/15 border border-orange-400/30 px-2 py-0.5 md:px-2.5 md:py-1 text-[10px] md:text-xs font-bold text-orange-300">
                         {slide.tag}
@@ -119,25 +119,23 @@ export function HeroSection() {
           </div>
 
           {/* دکمه‌های قبلی و بعدی روی هاور دسکتاپ */}
-          <div className="pointer-events-none absolute inset-y-0 inset-x-0 z-20 container mx-auto px-4 hidden md:flex items-center justify-between">
-            <button
-              type="button"
-              onClick={scrollPrev}
-              aria-label="بنر قبلی"
-              className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-md opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </button>
+          <button
+            type="button"
+            onClick={scrollPrev}
+            aria-label="بنر قبلی"
+            className="hidden md:flex items-center justify-center absolute right-3 lg:right-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/90 text-slate-900 shadow-md opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
 
-            <button
-              type="button"
-              onClick={scrollNext}
-              aria-label="بنر بعدی"
-              className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-slate-900 shadow-md opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={scrollNext}
+            aria-label="بنر بعدی"
+            className="hidden md:flex items-center justify-center absolute left-3 lg:left-5 top-1/2 -translate-y-1/2 z-20 h-10 w-10 rounded-full bg-white/90 text-slate-900 shadow-md opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
 
           {/* نشانگرهای اسلاید */}
           <div className="absolute bottom-2.5 md:bottom-4 inset-x-0 z-20 flex items-center justify-center gap-1.5">
