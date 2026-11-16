@@ -159,10 +159,10 @@ export function CatalogView() {
   const currentPage = productsData?.page || filters.page;
 
   return (
-    <div className="container-site py-5 sm:py-7">
+    <div className="container mx-auto px-4 py-5 sm:py-7">
       <div className="lg:grid lg:grid-cols-12 lg:gap-6 lg:items-start">
         {/* سایدبار فیلتر دسکتاپ */}
-        <div className="hidden lg:block lg:col-span-3 lg:sticky lg:top-24">
+        <div className="hidden lg:block lg:col-span-3 lg:sticky lg:top-36">
           <FilterSidebar
             filters={filters}
             carsData={carsData}
@@ -171,6 +171,7 @@ export function CatalogView() {
             onUpdateFilters={updateFilters}
             onResetFilters={resetFilters}
             hasActiveFilters={hasActiveFilters}
+            className="max-h-[calc(100vh-10rem)] overflow-y-auto overscroll-contain"
           />
         </div>
 

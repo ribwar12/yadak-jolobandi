@@ -11,7 +11,7 @@ export const metadata = {
 
 function CatalogLoadingFallback() {
   return (
-    <div className="container-site py-5 sm:py-7">
+    <div className="container mx-auto px-4 py-5 sm:py-7">
       <div className="lg:grid lg:grid-cols-12 lg:gap-6">
         <div className="hidden lg:block lg:col-span-3">
           <Skeleton className="h-[540px] w-full rounded-2xl" />

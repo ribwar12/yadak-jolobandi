@@ -196,7 +196,7 @@ export function FilterSidebar({
           <AccordionTrigger className="text-xs sm:text-sm font-extrabold">
             دسته‌بندی قطعات
           </AccordionTrigger>
-          <AccordionContent className="space-y-2.5 max-h-60 overflow-y-auto pl-1">
+          <AccordionContent className="space-y-2.5 pl-1">
             {categories.map((cat) => {
               const checked = filters.categories.includes(cat.slug);
               return (
@@ -239,7 +239,7 @@ export function FilterSidebar({
           <AccordionTrigger className="text-xs sm:text-sm font-extrabold">
             برند و سازنده قطعه
           </AccordionTrigger>
-          <AccordionContent className="space-y-2.5 max-h-56 overflow-y-auto pl-1">
+          <AccordionContent className="space-y-2.5 pl-1">
             {brands.map((brand) => {
               const checked = filters.brands.includes(brand.slug);
               return (
