@@ -9,7 +9,7 @@ export function MarketVolatilityAlert() {
   if (!settings?.priceUpdateMode) return null;
 
   return (
-    <div className="bg-amber-600 text-white border-b border-amber-700">
+    <div className="bg-amber-600 text-white border-b border-amber-700 print:hidden">
       <div className="container mx-auto py-2.5 px-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs sm:text-sm">
         <div className="flex items-center gap-2 font-bold">
           <AlertTriangle className="h-4 w-4 shrink-0" />

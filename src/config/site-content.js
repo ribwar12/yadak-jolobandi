@@ -34,7 +34,7 @@ export const SITE_CONTENT = {
   navigation: {
     mainLinks: [
       { title: "صفحه اصلی", href: "/" },
-      { title: "فروشگاه قطعات", href: "/products", highlight: true },
+      { title: "فروشگاه قطعات", href: "/products" },
       { title: "پک‌های کامل جلوبندی", href: "/products?onlyBundles=true" },
       { title: "پیگیری سفارش", href: "/track-order" },
       { title: "درباره ما و ضمانت", href: "/about" },

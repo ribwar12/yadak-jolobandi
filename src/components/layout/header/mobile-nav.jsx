@@ -52,22 +52,31 @@ export function MobileNav() {
         </SheetHeader>
 
         <nav className="flex-1 overflow-y-auto p-4 space-y-1.5">
-          {SITE_CONTENT.navigation.mainLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={closeMenu}
-              className={cn(
-                "flex items-center justify-between rounded-lg px-3.5 py-3 text-sm font-bold transition-colors",
-                link.highlight
-                  ? "bg-orange-50 text-accent"
-                  : "text-slate-800 hover:bg-slate-100"
-              )}
-            >
-              <span>{link.title}</span>
-              <ChevronLeft className="h-4 w-4 text-slate-400" />
-            </Link>
-          ))}
+          {SITE_CONTENT.navigation.mainLinks.map((link) => {
+            const isActive =
+              link.href === "/"
+                ? pathname === "/"
+                : link.href === "/products"
+                  ? pathname === "/products" || pathname?.startsWith("/products/")
+                  : !link.href.includes("?") && pathname === link.href;
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={closeMenu}
+                className={cn(
+                  "flex items-center justify-between rounded-lg px-3.5 py-3 text-sm font-bold transition-colors",
+                  isActive
+                    ? "bg-orange-50 text-accent"
+                    : "text-slate-800 hover:bg-slate-100"
+                )}
+              >
+                <span>{link.title}</span>
+                <ChevronLeft className="h-4 w-4 text-slate-400" />
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="border-t border-slate-200 p-4 bg-slate-50 space-y-3">

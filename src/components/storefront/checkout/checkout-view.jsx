@@ -546,7 +546,7 @@ export function CheckoutView() {
         </div>
 
         {/* ستون چپ: خلاصه چسبان سفارش */}
-        <aside className="lg:col-span-4 lg:sticky lg:top-36 rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm space-y-4">
+        <aside className="lg:col-span-4 lg:sticky lg:top-40 rounded-2xl border border-slate-200 bg-white p-4 sm:p-5 shadow-sm space-y-4">
           <h2 className="text-sm sm:text-base font-black text-slate-900 pb-3 border-b border-slate-100">
             خلاصه سبد و صورت‌حساب ({formatNumber(totals.totalCount)} عدد)
           </h2>

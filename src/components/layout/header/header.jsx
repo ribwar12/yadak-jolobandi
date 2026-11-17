@@ -30,7 +30,7 @@ export function Header() {
   const openMobileNav = useUiStore((s) => s.openMobileNav);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white shadow-sm border-b border-slate-200">
+    <header className="sticky top-0 z-40 w-full bg-white shadow-sm border-b border-slate-200 print:hidden">
       {/* نوار اطلاع‌رسانی بالای هدر (فقط دسکتاپ) */}
       <div className="hidden lg:block bg-slate-900 text-slate-300 text-xs">
         <div className="container mx-auto flex items-center justify-between py-1.5 px-4 gap-4">
@@ -126,25 +126,25 @@ export function Header() {
         <div className="container mx-auto px-4">
           <nav
             aria-label="منوی اصلی فروشگاه"
-            className="flex items-center gap-5 xl:gap-7 py-2.5 text-xs sm:text-sm overflow-x-auto"
+            className="flex items-center gap-6 xl:gap-8 py-2 text-sm overflow-x-auto"
           >
             {SITE_CONTENT.navigation.mainLinks.map((link) => {
               const isActive =
                 link.href === "/"
                   ? pathname === "/"
-                  : !link.href.includes("?") && pathname === link.href;
+                  : link.href === "/products"
+                    ? pathname === "/products" || pathname?.startsWith("/products/")
+                    : !link.href.includes("?") && pathname === link.href;
 
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   className={cn(
-                    "whitespace-nowrap py-0.5 font-bold transition-colors border-b-2",
+                    "whitespace-nowrap py-1 font-bold transition-colors border-b-2",
                     isActive
                       ? "text-accent border-accent"
-                      : link.highlight
-                        ? "text-accent border-transparent hover:border-accent/40"
-                        : "text-slate-700 border-transparent hover:text-accent"
+                      : "text-slate-700 border-transparent hover:text-accent"
                   )}
                 >
                   {link.title}

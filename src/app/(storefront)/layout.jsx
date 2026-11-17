@@ -8,10 +8,8 @@ import { CarSelectorModal } from "@/components/storefront/car-selector/car-selec
 export default function StorefrontLayout({ children }) {
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <div className="print:hidden">
-        <MarketVolatilityAlert />
-        <Header />
-      </div>
+      <MarketVolatilityAlert />
+      <Header />
       <main className="flex-1">{children}</main>
       <div className="print:hidden">
         <Footer />
