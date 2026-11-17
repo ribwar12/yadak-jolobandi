@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronLeft, Info, PhoneCall, User } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import { ChevronLeft, Info, LogOut, PhoneCall, User } from "lucide-react";
+import { toast } from "sonner";
 import { Logo } from "@/components/shared/logo";
 import {
   Sheet,
@@ -17,14 +19,29 @@ import { useAuthStore } from "@/store/use-auth-store";
 import { useUiStore } from "@/store/use-ui-store";
 
 export function MobileNav() {
+  const router = useRouter();
+  const pathname = usePathname();
   const hydrated = useHydrated();
   const isOpen = useUiStore((s) => s.isMobileNavOpen);
   const setMobileNavOpen = useUiStore((s) => s.setMobileNavOpen);
 
-  const { isAuthenticated, user } = useAuthStore();
+  const { isAuthenticated, user, logout } = useAuthStore();
   const { data: settings } = useSiteSettings();
 
   const closeMenu = () => setMobileNavOpen(false);
+
+  const handleLogout = () => {
+    logout();
+    closeMenu();
+    toast.info("از حساب کاربری خود خارج شدید");
+
+    if (
+      pathname?.startsWith("/profile") ||
+      pathname?.startsWith("/checkout")
+    ) {
+      router.push("/");
+    }
+  };
 
   return (
     <Sheet open={isOpen} onOpenChange={setMobileNavOpen}>
@@ -67,17 +84,28 @@ export function MobileNav() {
 
         <div className="border-t border-slate-200 p-4 bg-slate-50 space-y-3">
           {hydrated && isAuthenticated ? (
-            <Link
-              href="/profile"
-              onClick={closeMenu}
-              className="flex items-center justify-between rounded-lg bg-white border border-slate-200 px-3.5 py-2.5 text-xs font-bold text-slate-900"
-            >
-              <span className="inline-flex items-center gap-2">
-                <User className="h-4 w-4 text-accent" />
-                {user?.fullName || user?.phone}
-              </span>
-              <span className="text-accent">حساب کاربری</span>
-            </Link>
+            <div className="space-y-2">
+              <Link
+                href="/profile"
+                onClick={closeMenu}
+                className="flex items-center justify-between rounded-lg bg-white border border-slate-200 px-3.5 py-2.5 text-xs font-bold text-slate-900"
+              >
+                <span className="inline-flex items-center gap-2 min-w-0">
+                  <User className="h-4 w-4 text-accent shrink-0" />
+                  <span className="truncate">{user?.fullName || user?.phone}</span>
+                </span>
+                <span className="text-accent shrink-0">حساب کاربری</span>
+              </Link>
+
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="w-full flex items-center justify-center gap-1.5 rounded-lg border border-red-200 bg-white px-3.5 py-2 text-xs font-bold text-red-600 hover:bg-red-50 transition-colors"
+              >
+                <LogOut className="h-3.5 w-3.5" />
+                <span>خروج از حساب کاربری</span>
+              </button>
+            </div>
           ) : (
             <Link
               href="/login"

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Menu, PhoneCall, ShoppingBag, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/shared/logo";
+import { AccountMenu } from "@/components/layout/header/account-menu";
 import { LiveSearch } from "@/components/layout/header/live-search";
 import { CarSelectorPill } from "@/components/storefront/car-selector/car-selector-pill";
 import { SITE_CONTENT } from "@/config/site-content";
@@ -22,7 +23,6 @@ export function Header() {
   const { totalCount } = getCartTotals(items, settings);
 
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
-  const user = useAuthStore((s) => s.user);
 
   const openCartDrawer = useUiStore((s) => s.openCartDrawer);
   const openMobileNav = useUiStore((s) => s.openMobileNav);
@@ -78,19 +78,7 @@ export function Header() {
             </div>
 
             {hydrated && isAuthenticated ? (
-              <Button
-                variant="outline"
-                size="sm"
-                className="h-9 sm:h-10 gap-1.5 border-slate-300 px-2.5 sm:px-3 text-xs font-bold text-slate-800"
-                asChild
-              >
-                <Link href="/profile" aria-label="حساب کاربری">
-                  <User className="h-4 w-4 text-accent shrink-0" />
-                  <span className="hidden sm:inline max-w-[100px] truncate">
-                    {user?.fullName || user?.phone}
-                  </span>
-                </Link>
-              </Button>
+              <AccountMenu />
             ) : (
               <Button
                 variant="outline"
