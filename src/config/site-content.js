@@ -33,12 +33,11 @@ export const SITE_CONTENT = {
   ],
   navigation: {
     mainLinks: [
-      { title: "همه قطعات", href: "/products", highlight: true },
-      { title: "پک‌های کامل", href: "/products?onlyBundles=true" },
-      { title: "طبق و بوش", href: "/products?category=control-arms-bushings" },
-      { title: "سیبک و فرمان", href: "/products?category=ball-joints" },
-      { title: "کمک‌فنر و فنر", href: "/products?category=shock-absorbers-springs" },
+      { title: "صفحه اصلی", href: "/" },
+      { title: "فروشگاه قطعات", href: "/products", highlight: true },
+      { title: "پک‌های کامل جلوبندی", href: "/products?onlyBundles=true" },
       { title: "پیگیری سفارش", href: "/track-order" },
+      { title: "درباره ما و ضمانت", href: "/about" },
     ],
   },
   trustPillars: [

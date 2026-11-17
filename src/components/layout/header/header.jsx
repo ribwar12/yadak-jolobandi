@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, PhoneCall, ShoppingBag, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/shared/logo";
@@ -16,6 +17,7 @@ import { getCartTotals, useCartStore } from "@/store/use-cart-store";
 import { useUiStore } from "@/store/use-ui-store";
 
 export function Header() {
+  const pathname = usePathname();
   const hydrated = useHydrated();
   const { data: settings } = useSiteSettings();
 
@@ -119,27 +121,36 @@ export function Header() {
         </div>
       </div>
 
-      {/* نوار نوبار دسکتاپ — ۶ مورد اصلی */}
+      {/* نوار نوبار دسکتاپ */}
       <div className="hidden lg:block border-t border-slate-100 bg-slate-50/70">
         <div className="container mx-auto px-4">
           <nav
             aria-label="منوی اصلی فروشگاه"
-            className="flex items-center gap-7 py-2.5 text-xs sm:text-sm"
+            className="flex items-center gap-5 xl:gap-7 py-2.5 text-xs sm:text-sm overflow-x-auto"
           >
-            {SITE_CONTENT.navigation.mainLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  "whitespace-nowrap py-0.5 font-bold transition-colors",
-                  link.highlight
-                    ? "text-accent"
-                    : "text-slate-700 hover:text-accent"
-                )}
-              >
-                {link.title}
-              </Link>
-            ))}
+            {SITE_CONTENT.navigation.mainLinks.map((link) => {
+              const isActive =
+                link.href === "/"
+                  ? pathname === "/"
+                  : !link.href.includes("?") && pathname === link.href;
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={cn(
+                    "whitespace-nowrap py-0.5 font-bold transition-colors border-b-2",
+                    isActive
+                      ? "text-accent border-accent"
+                      : link.highlight
+                        ? "text-accent border-transparent hover:border-accent/40"
+                        : "text-slate-700 border-transparent hover:text-accent"
+                  )}
+                >
+                  {link.title}
+                </Link>
+              );
+            })}
           </nav>
         </div>
       </div>

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { ChevronLeft, Info, LogOut, PhoneCall, User } from "lucide-react";
+import { ChevronLeft, LogOut, PhoneCall, User } from "lucide-react";
 import { toast } from "sonner";
 import { Logo } from "@/components/shared/logo";
 import {
@@ -68,18 +68,6 @@ export function MobileNav() {
               <ChevronLeft className="h-4 w-4 text-slate-400" />
             </Link>
           ))}
-
-          <Link
-            href="/about"
-            onClick={closeMenu}
-            className="flex items-center justify-between rounded-lg px-3.5 py-3 text-sm font-medium text-slate-700 hover:bg-slate-100"
-          >
-            <span className="inline-flex items-center gap-2">
-              <Info className="h-4 w-4 text-slate-400" />
-              درباره ما و ضمانت اصالت
-            </span>
-            <ChevronLeft className="h-4 w-4 text-slate-400" />
-          </Link>
         </nav>
 
         <div className="border-t border-slate-200 p-4 bg-slate-50 space-y-3">
