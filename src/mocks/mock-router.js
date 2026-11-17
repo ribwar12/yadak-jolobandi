@@ -65,6 +65,9 @@ export const mockRouter = {
     if (upperMethod === "GET" && cleanPath === "/me/orders") {
       return ordersHandlers.getMyOrders(token);
     }
+    if (upperMethod === "POST" && cleanPath === "/orders/track") {
+      return ordersHandlers.trackOrder(body);
+    }
     if (upperMethod === "GET" && cleanPath.startsWith("/orders/")) {
       const orderId = decodeURIComponent(cleanPath.slice("/orders/".length));
       return ordersHandlers.getOrderById(token, orderId);

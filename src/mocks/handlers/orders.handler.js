@@ -248,4 +248,33 @@ export const ordersHandlers = {
 
     return order;
   },
+
+  trackOrder(body = {}) {
+    const phone = toEnglishDigits(body.phone || "").trim();
+    const orderId = toEnglishDigits(body.orderId || "").trim().toUpperCase();
+
+    if (!/^09\d{9}$/.test(phone) || !orderId) {
+      throw new ApiError({
+        status: 400,
+        code: "INVALID_TRACK_INPUT",
+        message: "لطفاً شماره موبایل ۱۱ رقمی و کد سفارش معتبر را وارد کنید",
+      });
+    }
+
+    const orders = getCollection("orders") || [];
+    const matched = orders.find((o) => {
+      const oPhone = toEnglishDigits(o.customer?.phone || "").trim();
+      return o.id.toUpperCase() === orderId && oPhone === phone;
+    });
+
+    if (!matched) {
+      throw new ApiError({
+        status: 404,
+        code: "ORDER_NOT_FOUND",
+        message: "سفارشی با این شماره موبایل و کد رهگیری یافت نشد",
+      });
+    }
+
+    return matched;
+  },
 };

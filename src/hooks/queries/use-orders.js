@@ -71,3 +71,12 @@ export function useOrderDetail(orderId) {
     enabled: Boolean(orderId && isAuthenticated),
   });
 }
+
+export function useTrackOrder() {
+  return useMutation({
+    mutationFn: (payload) => orderService.trackOrder(payload),
+    onError: (err) => {
+      toast.error(err?.message || "سفارشی با مشخصات واردشده یافت نشد");
+    },
+  });
+}

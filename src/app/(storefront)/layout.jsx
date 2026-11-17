@@ -8,13 +8,17 @@ import { CarSelectorModal } from "@/components/storefront/car-selector/car-selec
 export default function StorefrontLayout({ children }) {
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <MarketVolatilityAlert />
-      <Header />
+      <div className="print:hidden">
+        <MarketVolatilityAlert />
+        <Header />
+      </div>
       <main className="flex-1">{children}</main>
-      <Footer />
-      <CartDrawer />
-      <MobileNav />
-      <CarSelectorModal />
+      <div className="print:hidden">
+        <Footer />
+        <CartDrawer />
+        <MobileNav />
+        <CarSelectorModal />
+      </div>
     </div>
   );
 }
