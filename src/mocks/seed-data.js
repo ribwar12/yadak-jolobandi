@@ -1,6 +1,6 @@
 import { IRAN_PROVINCES } from "./iran-locations";
 
-export const DB_VERSION = "1.1.0";
+export const DB_VERSION = "1.3.0";
 
 export const SEED_MANUFACTURERS = [
   { id: "ikco", name: "ایران‌خودرو (IKCO)", slug: "ikco" },
@@ -185,7 +185,7 @@ export const SEED_PRODUCTS = [
     ],
     warranty: "۱۲ ماه ضمانت کتبی تعویض بی‌قیدوشرط",
     position: "محور جلو - هر دو سمت (راننده و شاگرد)",
-    images: ["/images/products/suspension-pack.svg", "/images/products/control-arm.svg", "/images/products/ball-joint.svg"],
+    images: ["/images/products/pack-206.jpg", "/images/products/control-arm.svg", "/images/products/ball-joint.svg"],
     specifications: [
       { label: "جنس بوش‌های لاستیکی", value: "لاستیک طبیعی تقویت‌شده ضد پارگی (Anti-Tear EPDM)" },
       { label: "گرید متریال فولادی سیبک‌ها", value: "فولاد آلیاژی 40Cr با پوشش داکرومات ضد زنگ" },
@@ -221,7 +221,7 @@ export const SEED_PRODUCTS = [
     ],
     warranty: "۱۲ ماه ضمانت طلایی ایساکو با هولوگرام",
     position: "محور جلو - هر دو سمت",
-    images: ["/images/products/suspension-pack.svg", "/images/products/control-arm.svg"],
+    images: ["/images/products/pack-405.jpg", "/images/products/control-arm.svg"],
     specifications: [
       { label: "مقاومت بوش‌ها", value: "مقاوم در برابر دست‌اندازهای شدید جاده‌ای" },
       { label: "اصالت قطعه", value: "دارای بارکد استعلام پیامکی ایساکو" },
@@ -252,7 +252,7 @@ export const SEED_PRODUCTS = [
     ],
     warranty: "۱۲ ماه ضمانت تعویض عظام",
     position: "محور جلو - هر دو سمت",
-    images: ["/images/products/suspension-pack.svg"],
+    images: ["/images/products/pack-pride.jpg"],
     specifications: [
       { label: "ویژگی شاخص", value: "دوام ۲ برابری با قابلیت تزریق مجدد گریس" },
       { label: "جنس بدنه طبق", value: "فولاد فورج سنگین ضد خمش" },
@@ -283,7 +283,7 @@ export const SEED_PRODUCTS = [
     ],
     warranty: "۱۲ ماه گارانتی تعویض کتبی",
     position: "محور جلو - هر دو سمت",
-    images: ["/images/products/suspension-pack.svg"],
+    images: ["/images/products/pack-dena-tiba.jpg"],
     specifications: [
       { label: "جنس بوش‌ها", value: "بوش تقویت‌شده پلی‌اورتان ضد لاستیک‌سایی" },
       { label: "عملکرد", value: "رفع کامل انحراف به چپ و راست در سرعت بالا" },
@@ -315,7 +315,7 @@ export const SEED_PRODUCTS = [
     ],
     warranty: "۱۲ ماه ضمانت کتبی امیرنیا",
     position: "محور جلو - هر دو سمت",
-    images: ["/images/products/suspension-pack.svg"],
+    images: ["/images/products/pack-dena-tiba.jpg"],
     specifications: [
       { label: "تحمل وزن", value: "طراحی‌شده برای وزن بالای پیشرانه EF7 و توربو" },
       { label: "استاندارد", value: "گرید OEM خط تولید" },
@@ -345,7 +345,7 @@ export const SEED_PRODUCTS = [
     ],
     warranty: "۱۲ ماه ضمانت رسمی ایساکو",
     position: "محور جلو - هر دو سمت",
-    images: ["/images/products/suspension-pack.svg"],
+    images: ["/images/products/pack-405.jpg"],
     specifications: [
       { label: "نوع سیستم فرمان", value: "منطبق با جعبه فرمان برقی EPS تارا" },
       { label: "ساختار طبق", value: "ورق فولادی دوبل فابریک" },

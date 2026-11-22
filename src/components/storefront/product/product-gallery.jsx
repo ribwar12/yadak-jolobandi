@@ -18,7 +18,7 @@ export function ProductGallery({
 
   return (
     <div className="space-y-3">
-      <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 shadow-sm">
+      <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         {/* برچسب‌های گوشه تصویر */}
         <div className="absolute top-3 right-3 left-3 z-10 flex items-center justify-between gap-2 pointer-events-none">
           {isBundle ? (
@@ -44,7 +44,7 @@ export function ProductGallery({
           fill
           priority
           sizes="(max-width: 1024px) 100vw, 42vw"
-          className="object-contain p-6 sm:p-8"
+          className="object-contain p-3 sm:p-5"
         />
       </div>
 
@@ -59,7 +59,7 @@ export function ProductGallery({
                 onClick={() => setActiveIndex(idx)}
                 aria-label={`نمایش تصویر ${formatNumber(idx + 1)}`}
                 className={cn(
-                  "relative h-16 w-16 sm:h-20 sm:w-20 shrink-0 overflow-hidden rounded-xl border bg-slate-50 transition-all",
+                  "relative h-16 w-16 sm:h-20 sm:w-20 shrink-0 overflow-hidden rounded-xl border bg-white transition-all",
                   active
                     ? "border-accent ring-2 ring-orange-100 shadow-sm"
                     : "border-slate-200 hover:border-slate-300 opacity-75 hover:opacity-100"

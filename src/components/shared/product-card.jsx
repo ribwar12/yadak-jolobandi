@@ -19,6 +19,7 @@ export function ProductCard({ product, className, horizontalOnMobile = false }) 
   const isPriceUpdateMode = Boolean(settings?.priceUpdateMode);
   const isOutOfStock = Number(product.stock) <= 0;
   const imageSrc = product.images?.[0] || "/images/products/suspension-pack.svg";
+  const isSvgImage = imageSrc.endsWith(".svg");
 
   return (
     <div
@@ -34,7 +35,8 @@ export function ProductCard({ product, className, horizontalOnMobile = false }) 
       <Link
         href={`/products/${product.slug}`}
         className={cn(
-          "relative block overflow-hidden rounded-lg border border-slate-200/80 bg-slate-50",
+          "relative block overflow-hidden rounded-lg border border-slate-200/80",
+          isSvgImage ? "bg-slate-50" : "bg-white",
           horizontalOnMobile
             ? "w-28 h-28 shrink-0 self-center sm:self-stretch sm:w-full sm:h-auto sm:aspect-square mb-0 sm:mb-3"
             : "aspect-square w-full mb-3"
@@ -50,8 +52,12 @@ export function ProductCard({ product, className, horizontalOnMobile = false }) 
               : "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
           }
           className={cn(
-            "object-contain transition-transform duration-300 group-hover:scale-105",
-            horizontalOnMobile ? "p-2 sm:p-4" : "p-4"
+            "transition-transform duration-300 group-hover:scale-105",
+            isSvgImage
+              ? horizontalOnMobile
+                ? "object-contain p-2 sm:p-4"
+                : "object-contain p-4"
+              : "object-cover"
           )}
         />
 
