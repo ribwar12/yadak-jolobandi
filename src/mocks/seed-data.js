@@ -1,6 +1,6 @@
 import { IRAN_PROVINCES } from "./iran-locations";
 
-export const DB_VERSION = "1.0.0";
+export const DB_VERSION = "1.1.0";
 
 export const SEED_MANUFACTURERS = [
   { id: "ikco", name: "ایران‌خودرو (IKCO)", slug: "ikco" },
@@ -820,6 +820,8 @@ export const SEED_PRODUCTS = [
 export const SEED_USERS = [
   {
     id: "user_admin_1",
+    username: "admin",
+    password: "123456",
     fullName: "مدیر فنی یدک‌جلوبندی",
     phone: "09120000000",
     role: "admin",
@@ -831,6 +833,8 @@ export const SEED_USERS = [
   },
   {
     id: "user_cust_1",
+    username: "ali",
+    password: "123456",
     fullName: "علی رضایی",
     phone: "09123456789",
     role: "customer",

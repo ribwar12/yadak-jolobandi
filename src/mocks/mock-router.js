@@ -45,6 +45,12 @@ export const mockRouter = {
     }
 
     // 4. Auth & Profile endpoints
+    if (upperMethod === "POST" && cleanPath === "/auth/register") {
+      return authHandlers.register(body);
+    }
+    if (upperMethod === "POST" && cleanPath === "/auth/login") {
+      return authHandlers.login(body);
+    }
     if (upperMethod === "POST" && cleanPath === "/auth/otp/request") {
       return authHandlers.requestOtp(body);
     }

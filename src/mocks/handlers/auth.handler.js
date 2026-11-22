@@ -2,11 +2,17 @@ import { ApiError } from "@/lib/api-error";
 import { toEnglishDigits } from "@/lib/utils";
 import { getCollection, setCollection } from "../storage";
 
+function sanitizeUser(user) {
+  if (!user) return null;
+  const { password: _password, ...safeUser } = user;
+  return safeUser;
+}
+
 export function getUserFromToken(token) {
   if (!token || typeof token !== "string") return null;
   const userId = token.replace(/^Bearer\s+/i, "").replace(/^mock_jwt_/, "");
   const users = getCollection("users") || [];
-  return users.find((u) => u.id === userId) || null;
+  return sanitizeUser(users.find((u) => u.id === userId) || null);
 }
 
 export function requireAuth(token, requiredRole = null) {
@@ -29,6 +35,117 @@ export function requireAuth(token, requiredRole = null) {
 }
 
 export const authHandlers = {
+  register(body = {}) {
+    const username = (body.username || "").toString().trim();
+    const phone = toEnglishDigits(body.phone || "").trim();
+    const password = (body.password || "").toString();
+    const confirmPassword = (body.confirmPassword || "").toString();
+
+    if (username.length < 3) {
+      throw new ApiError({
+        status: 400,
+        code: "INVALID_USERNAME",
+        message: "نام کاربری باید حداقل ۳ کاراکتر باشد",
+      });
+    }
+
+    if (!/^09\d{9}$/.test(phone)) {
+      throw new ApiError({
+        status: 400,
+        code: "INVALID_PHONE",
+        message: "شماره موبایل واردشده معتبر نیست",
+      });
+    }
+
+    if (password.length < 6) {
+      throw new ApiError({
+        status: 400,
+        code: "WEAK_PASSWORD",
+        message: "رمز عبور باید حداقل ۶ کاراکتر باشد",
+      });
+    }
+
+    if (password !== confirmPassword) {
+      throw new ApiError({
+        status: 400,
+        code: "PASSWORD_MISMATCH",
+        message: "رمز عبور و تکرار آن یکسان نیستند",
+      });
+    }
+
+    const users = getCollection("users") || [];
+    const duplicate = users.find(
+      (u) =>
+        u.phone === phone ||
+        (u.username && u.username.toLowerCase() === username.toLowerCase())
+    );
+
+    if (duplicate) {
+      throw new ApiError({
+        status: 409,
+        code: "USER_EXISTS",
+        message: "این نام کاربری یا شماره موبایل قبلاً ثبت شده است",
+      });
+    }
+
+    const newUser = {
+      id: `user_${Date.now()}`,
+      username,
+      fullName: username,
+      phone,
+      password,
+      role: "customer",
+      province: "",
+      city: "",
+      address: "",
+      postalCode: "",
+      createdAt: new Date().toISOString(),
+    };
+
+    users.push(newUser);
+    setCollection("users", users);
+
+    return {
+      token: `mock_jwt_${newUser.id}`,
+      user: sanitizeUser(newUser),
+    };
+  },
+
+  login(body = {}) {
+    const username = (body.username || "").toString().trim();
+    const phone = toEnglishDigits(body.phone || "").trim();
+    const password = (body.password || "").toString();
+
+    if (!username || !password || !/^09\d{9}$/.test(phone)) {
+      throw new ApiError({
+        status: 400,
+        code: "INVALID_CREDENTIALS_FORMAT",
+        message: "لطفاً نام کاربری، شماره موبایل معتبر و رمز عبور را وارد کنید",
+      });
+    }
+
+    const users = getCollection("users") || [];
+    const matched = users.find(
+      (u) =>
+        u.phone === phone &&
+        (u.username || "").toLowerCase() === username.toLowerCase() &&
+        u.password === password
+    );
+
+    if (!matched) {
+      throw new ApiError({
+        status: 401,
+        code: "INVALID_CREDENTIALS",
+        message: "نام کاربری، شماره موبایل یا رمز عبور اشتباه است",
+      });
+    }
+
+    return {
+      token: `mock_jwt_${matched.id}`,
+      user: sanitizeUser(matched),
+    };
+  },
+
   requestOtp(body = {}) {
     const phone = toEnglishDigits(body.phone || "").trim();
     if (!/^09\d{9}$/.test(phone)) {
@@ -124,6 +241,6 @@ export const authHandlers = {
 
     users[idx] = updated;
     setCollection("users", users);
-    return updated;
+    return sanitizeUser(updated);
   },
 };

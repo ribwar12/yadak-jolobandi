@@ -6,6 +6,42 @@ import { queryKeys } from "@/lib/query-keys";
 import { authService } from "@/services/auth.service";
 import { useAuthStore } from "@/store/use-auth-store";
 
+export function useRegister() {
+  const setAuth = useAuthStore((s) => s.setAuth);
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (payload) => authService.register(payload),
+    onSuccess: (data) => {
+      setAuth(data.user, data.token);
+      queryClient.invalidateQueries({ queryKey: queryKeys.user.profile });
+      queryClient.invalidateQueries({ queryKey: queryKeys.orders.my });
+      toast.success("ثبت‌نام با موفقیت انجام شد! خوش آمدید.");
+    },
+    onError: (err) => {
+      toast.error(err?.message || "خطا در ثبت‌نام حساب کاربری");
+    },
+  });
+}
+
+export function useLogin() {
+  const setAuth = useAuthStore((s) => s.setAuth);
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (payload) => authService.login(payload),
+    onSuccess: (data) => {
+      setAuth(data.user, data.token);
+      queryClient.invalidateQueries({ queryKey: queryKeys.user.profile });
+      queryClient.invalidateQueries({ queryKey: queryKeys.orders.my });
+      toast.success("خوش آمدید! با موفقیت وارد حساب کاربری شدید.");
+    },
+    onError: (err) => {
+      toast.error(err?.message || "ورود ناموفق بود");
+    },
+  });
+}
+
 export function useRequestOtp() {
   const setPendingOtp = useAuthStore((s) => s.setPendingOtp);
 

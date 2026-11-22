@@ -65,7 +65,7 @@ export function HeroSection() {
               {slides.map((slide, idx) => (
                 <div
                   key={slide.id}
-                  className="relative min-w-0 shrink-0 grow-0 basis-full h-[185px] sm:h-[220px] md:h-[380px] lg:h-[480px] xl:h-[520px]"
+                  className="relative min-w-0 shrink-0 grow-0 basis-full h-[185px] sm:h-[220px] md:h-[420px] lg:h-[530px] xl:h-[580px]"
                 >
                   <Image
                     src={slide.image}

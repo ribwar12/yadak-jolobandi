@@ -104,14 +104,23 @@ export function MobileNav() {
               </button>
             </div>
           ) : (
-            <Link
-              href="/login"
-              onClick={closeMenu}
-              className="flex items-center justify-center gap-2 rounded-lg bg-slate-900 px-4 py-2.5 text-xs font-bold text-white"
-            >
-              <User className="h-4 w-4" />
-              ورود / ثبت‌نام
-            </Link>
+            <div className="grid grid-cols-2 gap-2">
+              <Link
+                href="/login"
+                onClick={closeMenu}
+                className="flex items-center justify-center gap-1.5 rounded-lg bg-slate-900 px-3 py-2.5 text-xs font-bold text-white"
+              >
+                <User className="h-4 w-4" />
+                ورود
+              </Link>
+              <Link
+                href="/register"
+                onClick={closeMenu}
+                className="flex items-center justify-center gap-1.5 rounded-lg border border-accent bg-white px-3 py-2.5 text-xs font-bold text-accent"
+              >
+                ثبت‌نام
+              </Link>
+            </div>
           )}
 
           <a

@@ -20,7 +20,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { OtpInput } from "@/components/auth/otp-input";
-import { getSafeRedirectPath } from "@/components/auth/login-view";
+import { getSafeRedirectPath } from "@/lib/auth-redirect";
 import { useRequestOtp, useVerifyOtp } from "@/hooks/queries/use-auth";
 import { useHydrated } from "@/hooks/use-hydrated";
 import { formatNumber } from "@/lib/utils";
